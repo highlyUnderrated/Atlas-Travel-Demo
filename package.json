@@ -1,0 +1,25 @@
+{
+  "name": "atlas-travel-launchdarkly-demo",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "A customer-facing LaunchDarkly Solutions Engineer exercise demonstrating release, rollback, remediation, targeting, and experimentation.",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "verify": "npm run build"
+  },
+  "engines": {
+    "node": ">=20.12.0"
+  },
+  "dependencies": {
+    "@launchdarkly/react-sdk": "^4.0.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.7.0",
+    "vite": "^6.4.5"
+  }
+}
