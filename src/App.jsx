@@ -11,7 +11,8 @@ import SmartDealsExperience from './components/SmartDealsExperience';
 import { DEFAULT_PERSONA, PERSONAS } from './data/personas';
 import { ArrowIcon, CompassIcon, PlaneIcon } from './icons';
 
-// The reviewer should recreate this exact flag key in their LaunchDarkly project.
+// These keys are the contracts between the application and LaunchDarkly.
+// They must match the flag and custom metric configured in the Test environment.
 export const FLAG_KEY = 'smart-deals-panel';
 export const EXPERIMENT_EVENT_KEY = 'smart-deal-cta-clicked';
 
@@ -40,6 +41,9 @@ function getReasonLabel(reason) {
 export default function App() {
   const ldClient = useLDClient();
   const { status, error } = useInitializationStatus();
+
+  // `false` is intentionally both the SDK fallback and the flag's off variation,
+  // so a connection or configuration problem always preserves the Classic UI.
   const detail = useBoolVariationDetail(FLAG_KEY, false);
   const [activePersona, setActivePersona] = useState(DEFAULT_PERSONA);
   const [isSwitching, setIsSwitching] = useState(false);
@@ -53,6 +57,8 @@ export default function App() {
   useEffect(() => {
     if (!ldClient) return undefined;
 
+    // The typed variation hook already re-renders on flag changes. This explicit
+    // listener exists to make streaming updates visible in the demo console.
     const handleChange = () => {
       setLastChange(`${formatTimestamp()} · Streaming update received`);
       setActivityMessage('LaunchDarkly configuration changed');
@@ -75,6 +81,8 @@ export default function App() {
     setIsSwitching(true);
     setActivityMessage(`Evaluating context ${persona.context.key}`);
     try {
+      // identify() replaces the active user context and waits for LaunchDarkly to
+      // return the flag values for that context before updating the selected persona.
       await ldClient.identify(persona.context);
       setActivePersona(persona);
       setLastChange(`${formatTimestamp()} · Context identified`);
@@ -90,6 +98,7 @@ export default function App() {
   }
 
   function handleDealClick() {
+    // This custom event key is also used by the optional binary conversion metric.
     ldClient?.track(EXPERIMENT_EVENT_KEY, {
       destination: 'tokyo-hakone',
       placement: 'smart-deals-panel',

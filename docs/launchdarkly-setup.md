@@ -76,24 +76,15 @@ The application explicitly enables streaming and attaches an SDK change listener
 5. Choose **Generic trigger**.
 6. Choose the action that turns flag targeting **Off**.
 7. Save, then immediately copy the unique trigger URL. LaunchDarkly only displays it once.
-8. Store it only in your local shell session:
+8. With the flag on, paste the unique URL directly into the simulated incident-response command:
 
 ```bash
-export LD_ROLLBACK_TRIGGER_URL='paste-trigger-url-here'
-```
-
-9. With the flag on, invoke the simulated incident response:
-
-```bash
-curl -X POST \
-  -H 'Content-Type: application/json' \
-  --data '{"eventName":"Smart Deals error threshold exceeded"}' \
-  "$LD_ROLLBACK_TRIGGER_URL"
+curl -X POST 'PASTE_THE_COMPLETE_TRIGGER_URL_HERE'
 ```
 
 The trigger turns targeting off. The application receives the change over its streaming connection and immediately returns to the classic experience.
 
-Do not commit the trigger URL. Treat it like a credential.
+Do not commit the trigger URL. Treat it like a credential. Pasting it directly is convenient for a one-time demonstration, but it leaves the URL in local shell history; delete and recreate the trigger after the interview if needed.
 
 ## 6. Required Part 2 — targeted relaunch
 

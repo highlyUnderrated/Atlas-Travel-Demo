@@ -42,5 +42,5 @@
 - Confirm the trigger belongs to the same flag and environment as the application.
 - Confirm the trigger is enabled.
 - Confirm it was created with the action “turn targeting off.”
-- If the URL was lost or exposed, reset it and update the local shell variable.
-- Never add the trigger URL to `.env.local`; Vite exposes `VITE_` variables to the browser.
+- If the URL was lost or exposed, delete and recreate the trigger, then paste the new URL into the `curl` command.
+- Never add the trigger URL to application code, a committed environment file, or a variable prefixed with `VITE_`.

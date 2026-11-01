@@ -1,3 +1,5 @@
+// The context keys and custom attributes intentionally mirror the targeting
+// examples in README.md so every evaluation path is repeatable during the demo.
 export const PERSONAS = [
   {
     id: 'taylor',

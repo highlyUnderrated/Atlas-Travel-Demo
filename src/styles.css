@@ -1,3 +1,4 @@
+/* Design tokens and global defaults */
 :root {
   color: #172431;
   background: #f5f0e7;
@@ -37,6 +38,8 @@ code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace; }
 }
 
 .app-shell { overflow: hidden; }
+
+/* Global navigation */
 .site-header {
   height: 80px;
   max-width: 1440px;
@@ -59,6 +62,7 @@ code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace; }
 .header-cta { justify-self: end; display: inline-flex; align-items: center; gap: 9px; padding: 11px 17px; border: 1px solid var(--ink); background: transparent; color: var(--ink); border-radius: 999px; font-weight: 800; font-size: 12px; }
 .header-cta:hover { background: var(--ink); color: white; }
 
+/* Editorial hero and trip-search presentation */
 .hero {
   min-height: 690px;
   max-width: 1440px;
@@ -107,6 +111,7 @@ code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace; }
 .floating-note--top { top: 80px; left: -38px; }
 .floating-note--bottom { bottom: 65px; right: -20px; }
 
+/* LaunchDarkly context selector */
 .audience-panel { padding: 24px max(5vw, calc((100vw - 1440px) / 2 + 5vw)); display: grid; grid-template-columns: .55fr 1.45fr; align-items: center; gap: 30px; color: white; background: var(--ink); }
 .audience-panel__intro { display: flex; align-items: center; gap: 18px; }
 .audience-panel__number { font-family: Georgia, serif; color: var(--coral); font-size: 33px; font-style: italic; }
@@ -124,6 +129,7 @@ code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace; }
 .persona-chip strong { display: block; font-size: 11px; }
 .persona-chip small { display: block; margin-top: 2px; color: inherit; opacity: .62; font-size: 8px; white-space: nowrap; }
 
+/* Flag-controlled Classic experience */
 .experience-transition { background: #f8f5ef; }
 .experience { max-width: 1440px; margin: 0 auto; min-height: 650px; padding: 110px 5vw 125px; }
 .section-heading { margin-bottom: 42px; display: flex; align-items: flex-end; justify-content: space-between; gap: 30px; }
@@ -149,6 +155,7 @@ code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace; }
 .destination-card__footer { margin-top: 21px; padding-top: 14px; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--line); color: var(--ink); font-size: 10px; font-weight: 750; }
 .destination-card__footer button { width: 31px; height: 31px; display: grid; place-items: center; border-radius: 50%; border: 1px solid var(--line); background: transparent; color: var(--ink); }
 
+/* Flag-controlled Smart Deals experience */
 .experience-transition--smart { background: #ebe3d7; }
 .eyebrow--live { display: inline-flex; align-items: center; gap: 6px; color: #15705f; }
 .smart-match { padding: 11px 15px; color: var(--ink); border: 1px solid rgba(16,40,58,.2); border-radius: 999px; font-size: 10px; }
@@ -175,6 +182,7 @@ code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace; }
 .primary-button { display: inline-flex; align-items: center; gap: 9px; padding: 13px 16px; color: var(--ink); background: var(--mint); border: 0; border-radius: 10px; font-size: 10px; font-weight: 900; }
 .primary-button:hover { background: #93e3d4; }
 
+/* Live flag evaluation and incident-remediation console */
 .console-section { padding: 110px max(5vw, calc((100vw - 1440px) / 2 + 5vw)); display: grid; grid-template-columns: .58fr 1.42fr; gap: 6vw; align-items: center; background: #dce7e2; }
 .console-section__copy h2 { margin: 13px 0 23px; color: var(--ink); font: 500 clamp(40px, 4.2vw, 63px)/.94 Georgia, serif; letter-spacing: -.045em; }
 .console-section__copy p { max-width: 430px; color: var(--ink-soft); font-size: 14px; line-height: 1.7; }
@@ -203,6 +211,7 @@ code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace; }
 .command-copy { max-width: 295px; min-width: 0; padding: 10px 12px; display: flex; align-items: center; gap: 10px; color: #d8e6e7; background: #071b28; border: 1px solid rgba(255,255,255,.08); border-radius: 8px; }
 .command-copy code { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 8px; }
 
+/* Footer, transient notifications, and missing-configuration screen */
 footer { padding: 27px 5vw; display: flex; justify-content: space-between; align-items: center; gap: 20px; color: #84949e; background: #071b28; font-size: 9px; }
 .brand--footer { color: white; font-size: 13px; }
 .brand--footer .brand-mark { width: 30px; height: 30px; color: var(--ink); background: var(--mint); }
@@ -219,6 +228,7 @@ footer code { color: #cad6dc; }
 .setup-card pre { margin: 25px 0; padding: 18px; overflow-x: auto; color: #d4e8e5; background: var(--ink); border-radius: 12px; }
 .setup-card__note { margin-bottom: 0; font-size: 12px; }
 
+/* Responsive layouts */
 @media (max-width: 1080px) {
   .main-nav { display: none; }
   .site-header { grid-template-columns: 1fr 1fr; }

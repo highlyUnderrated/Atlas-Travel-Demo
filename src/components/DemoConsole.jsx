@@ -1,6 +1,7 @@
 import { CopyIcon, ShieldIcon, SignalIcon } from '../icons';
 
-const INCIDENT_COMMAND = 'curl -X POST "$LD_ROLLBACK_TRIGGER_URL"';
+// Keep the real trigger URL out of source control and the browser bundle.
+const INCIDENT_COMMAND = "curl -X POST 'PASTE_THE_COMPLETE_TRIGGER_URL_HERE'";
 
 export default function DemoConsole({
   persona,
